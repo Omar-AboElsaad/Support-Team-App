@@ -49,7 +49,8 @@ A backend system to assist the support team in managing their tasks and operatio
    ```bash
    cd Support-Team-App
 
-3. Configure the application.properties file with your MySQL database credentials.
+3. Configure the application.properties file with your MySQL database credentials and mail config.
+
 4. Build and run the application:
    ```bash
    mvn spring-boot:run
