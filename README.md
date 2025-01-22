@@ -44,10 +44,10 @@ A backend system to assist the support team in managing their tasks and operatio
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/support-team-management.git
+   git clone https://github.com/Omar-AboElsaad/Support-Team-App.git
 2. Navigate to the project folder:
    ```bash
-   cd support-team-management
+   cd Support-Team-App
 
 3. Configure the application.properties file with your MySQL database credentials.
 4. Build and run the application:
