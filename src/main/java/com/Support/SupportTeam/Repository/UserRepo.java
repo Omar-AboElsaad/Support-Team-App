@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepo extends JpaRepository<User,Long> {
-    User findByemail(String email);
+    User findByEmail(String email);
 
     boolean existsByemail(@Email(message = "Invalid Email") @NotBlank String attr0);
 
@@ -22,4 +22,8 @@ public interface UserRepo extends JpaRepository<User,Long> {
 
     @Query("SELECT u FROM User u WHERE u.active = false ")
     List<User> findNotActiveUsers();
+
+    void deleteUserByFirstName(String name);
+
+    void deleteUserByEmail(String mail);
 }

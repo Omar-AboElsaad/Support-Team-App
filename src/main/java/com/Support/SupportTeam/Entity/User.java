@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +15,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Setter
 @Getter
-@Builder
 @Entity
 public class User {
 
@@ -28,13 +28,16 @@ public class User {
     private String password;
     private long phone;
     private boolean active;
+    private boolean isDeleted;
+    private String otp;
+    private LocalDateTime otpExpiry; // Expiration time
+
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "Supported_Projects",
             joinColumns=@JoinColumn(name = "support_member_id",referencedColumnName = "id"),
             inverseJoinColumns =@JoinColumn(name = "project_id",referencedColumnName = "id") )
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Project> projects=new HashSet<>();
 //-----------------------------------------------------------------------------------------------
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .email-body {
+            padding: 20px;
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+        }
+        .email-footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            padding-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        New Supporter Is Here !
+    </div>
+    <div class="email-body">
+        <p>Dear Eng. <b>${managerName}</b>,</p>
+        <p>A new user, ${UserName}, has registered.</p>
+        <p>Kindly can you active his account</p>
+        <p>You can activate him by clicking on the button below.</p>
+<!--        ToDo : change this url with the correct one
+                    that will redirect to frontend that have role to active user -->
+        <a href="http://localhost:9004/active-user/${userId}" style="text-align: center">Activate</a>
+    </div>
+    <div class="email-footer">
+        © 2025 Omar. All rights reserved.
+    </div>
+</div>
+</body>
+</html>

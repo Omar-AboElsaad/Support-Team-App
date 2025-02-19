@@ -17,7 +17,7 @@ public class SupportUserDetailsService implements UserDetailsService {
     private final UserRepo userRepo;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-     User user= Optional.ofNullable(userRepo.findByemail(email)).
+     User user= Optional.ofNullable(userRepo.findByEmail(email)).
              orElseThrow(()->new ResourceNotFoundException("User with email "+email+" Not Found"));
 
         return SupportUserDetails.buildUserDetails(user);

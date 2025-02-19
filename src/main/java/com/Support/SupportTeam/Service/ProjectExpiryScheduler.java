@@ -3,9 +3,12 @@ package com.Support.SupportTeam.Service;
 import com.Support.SupportTeam.Entity.Project;
 import com.Support.SupportTeam.Entity.User;
 import com.Support.SupportTeam.Repository.ProjectRepo;
+import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -32,7 +35,13 @@ public class ProjectExpiryScheduler {
                 String message = "The project '" + project.getName() + "' is expiring soon on " + project.getEndingDate();
                 String recipient = manager.getEmail();
 
-                emailService.sendEmail(recipient, subject, message);
+                try {
+                    emailService.sendEmail(recipient, subject, message);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println("Alert sent for project: " + project.getName());
             }
         } );

@@ -11,5 +11,4 @@ public class  updateUserRequest {
     private String lastName;
     private String email;
     private long phone;
-
 }

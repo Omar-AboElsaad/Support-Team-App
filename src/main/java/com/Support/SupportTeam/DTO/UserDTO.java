@@ -14,6 +14,7 @@ public class UserDTO {
     private String email;
     private long phone;
     private boolean active;
+    private boolean isDeleted;
     private Collection<Role> roles;
 
 
